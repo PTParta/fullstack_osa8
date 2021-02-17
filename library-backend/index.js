@@ -129,9 +129,9 @@ const resolvers = {
     bookCount: () => books.length,
     authorCount: () => authors.length,
     allBooks: (root, args) => {
-      console.log('args', args)
+      /* console.log('args', args)
       console.log('args.author', args.author)
-      console.log('args.genre', args.genre)
+      console.log('args.genre', args.genre) */
       if (args.author === undefined && args.genre === undefined) {
         return books
       } else if (args.author === undefined) {
