@@ -1,3 +1,6 @@
+------------------------------------Without MongoDB--------------------------------------------
+
+
 query {
   bookCount
   authorCount
@@ -75,5 +78,35 @@ mutation {
   editAuthor(name: "Reijo Mäki", setBornTo: 1958) {
     name
     born
+  }
+}
+
+------------------------------------With MongoDB--------------------------------------------
+
+mutation {
+  addBook(
+    title: "NoSQL Distilled",
+    author: "Martin Fowler",
+    published: 2012,
+    genres: ["database", "nosql"]
+  ) {
+    title,
+    author{
+      name
+      }
+  }
+}
+
+mutation {
+  addBook(
+    title: "Pimeyden tango",
+    author: "Reijo Mäki",
+    published: 1997,
+    genres: ["crime"]
+  ) {
+    title,
+    author{
+      name
+      }
   }
 }
