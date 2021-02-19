@@ -125,16 +125,19 @@ const resolvers = {
   Author: {
     bookCount: async (root) => {
       const booksByAuthors = await Book.find({ author: { $in: root.id } })
-      console.log('booksByAuthors: ', booksByAuthors)
+      //console.log('booksByAuthors: ', booksByAuthors)
       return booksByAuthors.length
     }
+  },
+  Book: {
+    author: async (root) => Author.findById(root.author)
   },
   Mutation: {
     addBook: async (root, args, context) => {
       const currentUser = context.currentUser
       console.log('current user', currentUser)
 
-      if (!currentUser){
+      if (!currentUser) {
         throw new AuthenticationError("not authenticated")
       }
       const author = await Author.findOne({ name: args.author })
@@ -174,8 +177,8 @@ const resolvers = {
     editAuthor: async (root, args, context) => {
       const currentUser = context.currentUser
       console.log('current user', currentUser)
-      
-      if (!currentUser){
+
+      if (!currentUser) {
         throw new AuthenticationError("not authenticated")
       }
 

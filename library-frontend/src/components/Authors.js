@@ -45,11 +45,11 @@ const Authors = (props) => {
   const handleBirthday = async (event) => {
     event.preventDefault()
 
-   /*  const selectedName = selectedOption.value
-    setName(selectedName)
-    console.log(name)
-    console.log(born)
-    console.log(selectedOption.value) */
+    /*  const selectedName = selectedOption.value
+     setName(selectedName)
+     console.log(name)
+     console.log(born)
+     console.log(selectedOption.value) */
 
     const bornInt = parseInt(born)
 
@@ -83,29 +83,33 @@ const Authors = (props) => {
           )}
         </tbody>
       </table>
-      <h2>Set birthday</h2>
-      <Select
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
-      />
-      <form onSubmit={handleBirthday}>
-        {/* <div>
+
+      {props.token ? <div>
+        <h2>Set birthday</h2>
+        <Select
+          defaultValue={selectedOption}
+          onChange={setSelectedOption}
+          options={options}
+        />
+        <form onSubmit={handleBirthday}>
+          {/* <div>
           name
           <input
             value={name}
             onChange={({ target }) => setName(target.value)}
           />
         </div> */}
-        <div>
-          born
+          <div>
+            born
           <input
-            value={born}
-            onChange={({ target }) => setBorn(target.value)}
-          />
-        </div>
-        <button type='submit'>update author</button>
-      </form>
+              value={born}
+              onChange={({ target }) => setBorn(target.value)}
+            />
+          </div>
+          <button type='submit'>update author</button>
+        </form>
+      </div>
+        : <></>}
     </div>
   )
 }
