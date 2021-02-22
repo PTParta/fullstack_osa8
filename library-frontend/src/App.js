@@ -4,6 +4,7 @@ import Authors from './components/Authors'
 import Books from './components/Books'
 import NewBook from './components/NewBook'
 import Login from './components/Login'
+import Recommended from './components/Recommended'
 import { useQuery, useApolloClient } from '@apollo/client'
 import { ALL_AUTHORS, ALL_BOOKS } from './queries'
 
@@ -51,7 +52,9 @@ const App = () => {
         <button onClick={() => setPage('books')}>books</button>
         {token ? <button onClick={() => setPage('add')}>add book</button> : <></>}
         {!token ? <button onClick={() => setPage('login')}>login</button> : <></>}
+        {token ? <button onClick={() => setPage('recommended')}>recommended</button> : <></>}
         {token ? <button onClick={() => logout()}>logout</button> : <></>}
+
       </div>
 
       {/* {!token ? <Notify errorMessage={errorMessage}/> : <div></div>} */}
@@ -70,6 +73,11 @@ const App = () => {
       <NewBook
         show={page === 'add'}
       />
+      {token ?<Recommended
+        show={page === 'recommended'}
+        books={allBooks.data.allBooks}
+      />:<></>}
+      
 
       <Login
         show={page === 'login'}
