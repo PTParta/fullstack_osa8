@@ -104,6 +104,7 @@ const resolvers = {
     authorCount: () => Author.collection.countDocuments(),
     //allbooks query doesn't work with parameter author = Author
     allBooks: async (root, args) => {
+      console.log('query: allBooks')
       if (args.author === undefined && args.genre === undefined) {
         //return books
         return Book.find({})
@@ -117,19 +118,24 @@ const resolvers = {
 
     },
     //allAuthors: () => authors
-    allAuthors: () => Author.find({}),
+    allAuthors: async () => {
+      console.log('query: allAuthors')
+      return await Author.find({})
+    },
     me: (root, args, context) => {
       //console.log('context', context)
       return context.currentUser
     }
   },
-  Author: {
+  //bookCount resolver for Author is removed. bookCount is in the Author model and is updated when new books are created
+  /* Author: {
     bookCount: async (root) => {
+      console.log('query: bookCount')
       const booksByAuthors = await Book.find({ author: { $in: root.id } })
       //console.log('booksByAuthors: ', booksByAuthors)
       return booksByAuthors.length
     }
-  },
+  }, */
   Book: {
     author: async (root) => Author.findById(root.author)
   },
@@ -146,6 +152,7 @@ const resolvers = {
 
       if (author) {
         const book = new Book({ ...args, author: author })
+        author.bookCount = author.bookCount + 1
         try {
           await book.save()
         } catch (error) {
@@ -153,10 +160,11 @@ const resolvers = {
             invalidArgs: args,
           })
         }
+        await author.save()
         return book
       }
 
-      const newAuthor = new Author({ name: args.author })
+      const newAuthor = new Author({ name: args.author, bookCount: 1 })
       try {
         await newAuthor.save()
       } catch (error) {

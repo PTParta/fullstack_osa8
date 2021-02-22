@@ -3,56 +3,54 @@
  * Yksinkertaisuuden vuoksi tallennamme kuitenkin kirjan yhteyteen tekijän nimen
 */
 
-
-
 let books = [
   {
-    title: 'Clean Code',
+    title: "Clean Code",
     published: 2008,
-    //author: Author.findById('602e137ec883c62bfd59c042'),
-    //id: "afa5b6f4-344d-11e9-a414-719c6709cf3e",
-    genres: ['refactoring']
+    author: "Robert Martin",
+    id: "afa5b6f4-344d-11e9-a414-719c6709cf3e",
+    genres: ["refactoring"]
   },
   {
-    title: 'Agile software development',
+    title: "Agile software development",
     published: 2002,
-    //author: Author.findById('602e137ec883c62bfd59c042'),
-    //id: "afa5b6f5-344d-11e9-a414-719c6709cf3e",
-    genres: ['agile', 'patterns', 'design']
+    author: "Robert Martin",
+    id: "afa5b6f5-344d-11e9-a414-719c6709cf3e",
+    genres: ["agile", "patterns", "design"]
   },
   {
-    title: 'Refactoring, edition 2',
+    title: "Refactoring, edition 2",
     published: 2018,
-    //author: Author.findById('602e137ec883c62bfd59c043'),
-    //id: "afa5de00-344d-11e9-a414-719c6709cf3e",
-    genres: ['refactoring']
+    author: "Martin Fowler",
+    id: "afa5de00-344d-11e9-a414-719c6709cf3e",
+    genres: ["refactoring"]
   },
   {
-    title: 'Refactoring to patterns',
+    title: "Refactoring to patterns",
     published: 2008,
-    //author: Author.findById('602e137ec883c62bfd59c045'),
-    //id: "afa5de01-344d-11e9-a414-719c6709cf3e",
-    genres: ['refactoring', 'patterns']
-  },
+    author: "Joshua Kerievsky",
+    id: "afa5de01-344d-11e9-a414-719c6709cf3e",
+    genres: ["refactoring", "patterns"]
+  },  
   {
-    title: 'Practical Object-Oriented Design, An Agile Primer Using Ruby',
+    title: "Practical Object-Oriented Design, An Agile Primer Using Ruby",
     published: 2012,
-    //author: Author.findById('602e137ec883c62bfd59c046'),
-    //id: "afa5de02-344d-11e9-a414-719c6709cf3e",
-    genres: ['refactoring', 'design']
+    author: "Sandi Metz",
+    id: "afa5de02-344d-11e9-a414-719c6709cf3e",
+    genres: ["refactoring", "design"]
   },
   {
-    title: 'Crime and punishment',
+    title: "Crime and punishment",
     published: 1866,
-    //author: Author.findById('602e137ec883c62bfd59c044'),
-    //id: "afa5de03-344d-11e9-a414-719c6709cf3e",
-    genres: ['classic', 'crime']
+    author: "Fyodor Dostoevsky",
+    id: "afa5de03-344d-11e9-a414-719c6709cf3e",
+    genres: ["classic", "crime"]
   },
   {
-    title: 'The Demon ',
+    title: "The Demon ",
     published: 1872,
-    //author: Author.findById('602e137ec883c62bfd59c044'),
-    //id: "afa5de04-344d-11e9-a414-719c6709cf3e",
-    genres: ['classic', 'revolution']
+    author: "Fyodor Dostoevsky",
+    id: "afa5de04-344d-11e9-a414-719c6709cf3e",
+    genres: ["classic", "revolution"]
   },
 ]
